@@ -1,7 +1,5 @@
 # Election_Analysis
 _______________________________________________________________________________________________________________________________________________________________________
-![Election Results!](https://user-images.githubusercontent.com/111723067/190506315-7998bf75-f24c-4cbc-a264-0031c0871211.png)
-
 ### Project Overview
 _______________________________________________________________________________________________________________________________________________________________________
 ![Diana DeGette](https://user-images.githubusercontent.com/111723067/190506038-594ae5e6-7259-4fbb-a511-6ca5f79b553c.png)
@@ -23,33 +21,55 @@ ________________________________________________________________________________
 ### Summary
 _______________________________________________________________________________________________________________________________________________________________________
 
+The analysis of the election shows that:
+
 ![election results 2](https://user-images.githubusercontent.com/111723067/190504383-081b0dae-35ee-4763-a23d-d212c5b6b2f0.png)
 
-
-The analysis of the election shows that:
 * There were 369,711 total votes cast in the election. 
 
+        total_votes += 1
+
 * The candidates were:
-  * Diana DeGette
-  * Charles Casper Stockham
-  * Raymon Anthony Doane
+   * Diana DeGette
+   * Charles Casper Stockham
+   * Raymon Anthony Doane
 
 * The candidate results were:
-  * Diana DeGette received 73.8% of the vote and 272,892 votes.
-  * Charles Casper Stockham received 23.0% of the vote and 85,213 votes.
-  * Raymon Anthony Doane received 3.1% of the vote and 11,606 votes.
+
+   *  Diana DeGette received 73.8% of the vote and 272,892 votes.
+   *  Charles Casper Stockham received 23.0% of the vote and 85,213 votes.
+   *  Raymon Anthony Doane received 3.1% of the vote and 11,606 votes.
+
+             votes = candidate_votes.get(candidate_name)
+             vote_percentage = float(votes) / float(total_votes) * 100
+             candidate_results = (
+             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
 * The winner of the election was:
   * Diana DeGette, who received 73.8% of the vote and a total of 272,892 votes.
+
+         if (votes > winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_candidate = candidate_name
+            winning_percentage = vote_percentage
+
 
 * Votes by county: 
   * Jefferson: 10.5% (38,855 total votes).
   * Denver: 82.8% (306,055 total votes).
   * Arapahoe: 6.7% (24,801 total votes).
 
+        county_vote_percentage = float(area_votes) / float(total_votes) * 100
+        county_results = (
+            f"{county}: {county_vote_percentage:.1f}% ({area_votes:,})\n")
+
 * County with largest number of votes:
   * Denver: 82.8% (306,055 total votes).
 
+        if (area_votes > most_votes):
+            most_votes = area_votes
+            largest_county = county
+            
 ### Challenge Overview
 _______________________________________________________________________________________________________________________________________________________________________
 * Creating this code was useful in helping me organize and search for the total votes, total votes per candidate, winning candidate, percentage of votes each canditate received, as well as election results based on the individual counties of Denver, Jefferson, and Arapahoe.
